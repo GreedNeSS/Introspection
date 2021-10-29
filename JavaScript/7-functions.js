@@ -1,0 +1,15 @@
+'use strict';
+
+const types = [
+	Function,
+	(async () => { }).constructor,
+	(function* () { }).constructor,
+	(async function* () { }).constructor,
+];
+
+const output = types.map(item => ({
+	name: item.name,
+	type: typeof item,
+	ctr: item.constructor.name,
+}));
+console.table(output);
